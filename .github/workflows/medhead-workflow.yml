@@ -1,0 +1,55 @@
+name: CI/CD for Java and TypeScript Projects
+
+on: 
+  push:
+    branches: 
+      - developpe
+    paths:
+      - 'api/**'
+      - 'web/**'
+      - 'apiReservation/**'
+  pull_request:
+    branches: 
+      - master
+    paths:
+      - 'api/**'
+      - 'web/**'
+      - 'apiReservation/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: ['api', 'web', 'apiReservation']
+        include:
+          - project: 'api'
+            setupScript: 'actions/setup-java@v2'
+            javaVersion: '17'
+            buildCommand: 'mvn -B package --file ${{ matrix.project }}/pom.xml'
+            testCommand: 'mvn test --file ${{ matrix.project }}/pom.xml'
+          - project: 'web'
+            setupScript: 'actions/setup-node@v2'
+            nodeVersion: '18.13.0'
+            buildCommand: 'npm run build --prefix ${{ matrix.project }}'
+            testCommand: 'npm test --prefix ${{ matrix.project }}'
+          - project: 'apiReservation'
+            setupScript: 'actions/setup-java@v2'
+            javaVersion: '17'
+            buildCommand: 'mvn -B package --file ${{ matrix.project }}/pom.xml'
+            testCommand: 'mvn test --file ${{ matrix.project }}/pom.xml'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Environment
+      uses: ${{ matrix.setupScript }}
+      with:
+        java-version: ${{ matrix.javaVersion }}
+        node-version: ${{ matrix.nodeVersion }}
+
+    - name: Build project
+      run: ${{ matrix.buildCommand }}
+
+    - name: Test project
+      run: ${{ matrix.testCommand }}
