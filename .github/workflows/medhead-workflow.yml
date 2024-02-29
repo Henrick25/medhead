@@ -24,23 +24,23 @@ jobs:
         project: ['api', 'web', 'apiReservation']
         include:
           - project: 'api'
-            setupScript: 'actions/setup-java@v2'
+            setupScript: 'actions/setup-java@v4'
             javaVersion: '17'
             buildCommand: 'mvn -B package --file ${{ matrix.project }}/pom.xml'
             testCommand: 'mvn test --file ${{ matrix.project }}/pom.xml'
           - project: 'web'
-            setupScript: 'actions/setup-node@v2'
+            setupScript: 'actions/setup-node@v4'
             nodeVersion: '18.13.0'
             buildCommand: 'npm run build --prefix ${{ matrix.project }}'
             testCommand: 'npm test --prefix ${{ matrix.project }}'
           - project: 'apiReservation'
-            setupScript: 'actions/setup-java@v2'
+            setupScript: 'actions/setup-java@v4'
             javaVersion: '17'
             buildCommand: 'mvn -B package --file ${{ matrix.project }}/pom.xml'
             testCommand: 'mvn test --file ${{ matrix.project }}/pom.xml'
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup Environment
       uses: ${{ matrix.setupScript }}
