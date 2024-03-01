@@ -1,19 +1,19 @@
-name: API Reservation CI/CD Workflow
+name: API CI/CD Workflow
 
 on: 
   push:
     branches: 
       - developpe
     paths:
-      - 'apiReservation/**'
+      - 'api/**'
   pull_request:
     branches: 
       - master
     paths:
-      - 'apiReservation/**'
+      - 'api/**'
 
 jobs:
-  build-and-test-api-reservation:
+  build-and-test-api:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
-    - name: Build and Test API Reservation
+    - name: Build and Test API
       run: |
-        mvn -B package --file apiReservation/pom.xml
-        mvn test --file apiReservation/pom.xml
+        mvn -B package --file api/pom.xml
+        mvn test --file api/pom.xml
