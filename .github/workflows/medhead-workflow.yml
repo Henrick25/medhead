@@ -22,34 +22,34 @@ jobs:
     strategy:
       matrix:
         project: ['api', 'web', 'apiReservation']
-        include:
-          - project: 'api'
-            setupScript: 'actions/setup-java@v3'
-            javaVersion: '17'
-            buildCommand: 'mvn -B package --file ${{ matrix.project }}/pom.xml'
-            testCommand: 'mvn test --file ${{ matrix.project }}/pom.xml'
-          - project: 'web'
-            setupScript: 'actions/setup-node@v3'
-            nodeVersion: '18.13.0'
-            buildCommand: 'npm run build --prefix ${{ matrix.project }}'
-            testCommand: 'npm test --prefix ${{ matrix.project }}'
-          - project: 'apiReservation'
-            setupScript: 'actions/setup-java@v3'
-            javaVersion: '17'
-            buildCommand: 'mvn -B package --file ${{ matrix.project }}/pom.xml'
-            testCommand: 'mvn test --file ${{ matrix.project }}/pom.xml'
-
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup Environment
-      uses: ${{ matrix.setupScript }}
+    - name: Setup Java for API projects
+      if: matrix.project == 'api' || matrix.project == 'apiReservation'
+      uses: actions/setup-java@v3
       with:
-        java-version: ${{ matrix.javaVersion }}
-        node-version: ${{ matrix.nodeVersion }}
+        java-version: '17'
 
-    - name: Build project
-      run: ${{ matrix.buildCommand }}
+    - name: Setup Node for Web project
+      if: matrix.project == 'web'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.13.0'
 
-    - name: Test project
-      run: ${{ matrix.testCommand }}
+    - name: Build API project
+      if: matrix.project == 'api' || matrix.project == 'apiReservation'
+      run: mvn -B package --file ${{ matrix.project }}/pom.xml
+
+    - name: Build Web project
+      if: matrix.project == 'web'
+      run: npm run build --prefix ${{ matrix.project }}
+
+    - name: Test API project
+      if: matrix.project == 'api' || matrix.project == 'apiReservation'
+      run: mvn test --file ${{ matrix.project }}/pom.xml
+
+    - name: Test Web project
+      if: matrix.project == 'web'
+      run: npm test --prefix ${{ matrix.project }}
+
