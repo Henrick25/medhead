@@ -3,7 +3,7 @@ name: My Applications Workflow
 on: 
   push:
     branches: 
-      - main
+      - developpe
     paths:
       - 'api/**'
       - 'web/**'
