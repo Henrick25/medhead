@@ -1,34 +1,27 @@
-name: Web CI/CD Workflow
+name: API Reservation CI/CD Workflow
 
 on: 
   push:
     branches: 
       - developpe
     paths:
-      - 'web/**'
+      - 'apiReservation/**'
   pull_request:
     branches: 
       - master
     paths:
-      - 'web/**'
+      - 'apiReservation/**'
 
 jobs:
-  build-and-test-web:
+  build-and-test-api-reservation:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Setup Node for Web project
-      uses: actions/setup-node@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
       with:
-        node-version: '18.x'
-        cache: 'npm'
-        cache-dependency-path: web/package-lock.json
-    - name: Install dependencies for Web project
-      run: npm ci
-      working-directory: web
-    - name: Build Web project
-      run: npm run build --if-present
-      working-directory: web
-    - name: Test Web project
-      run: npm test
-      working-directory: web
+        java-version: '17'
+    - name: Build and Test API Reservation
+      run: |
+        mvn -B package --file apiReservation/pom.xml
+        mvn test --file apiReservation/pom.xml
