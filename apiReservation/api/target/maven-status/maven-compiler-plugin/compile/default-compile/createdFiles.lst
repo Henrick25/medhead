@@ -1,0 +1,17 @@
+com/medhead/api/ApiApplication.class
+com/medhead/api/dto/SpecializationDTO.class
+com/medhead/api/mapper/HospitalMapper.class
+com/medhead/api/mapper/SpecializationMapper.class
+com/medhead/api/model/Specialization.class
+com/medhead/api/controller/HospitalController.class
+com/medhead/api/dto/GroupeSpecialiteDTO.class
+com/medhead/api/model/GroupeSpecialite.class
+com/medhead/api/repository/HospitalRepository.class
+com/medhead/api/mapper/GroupeSpecialiteMapper.class
+com/medhead/api/service/HospitalService.class
+com/medhead/api/model/Hospital.class
+com/medhead/api/dto/HospitalDTO.class
+com/medhead/api/repository/SpecializationRepository.class
+com/medhead/api/security/SecurityConfig$SpringSecurityConfig.class
+com/medhead/api/security/SecurityConfig.class
+com/medhead/api/config/WebConfig.class

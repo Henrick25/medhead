@@ -1,0 +1,15 @@
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/repository/ReservationRepository.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/dto/ReservationDTO.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/model/Specialization.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/service/ReservationService.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/security/SecurityConfig.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/model/Reservation.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/ApiApplication.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/mapper/ReservationMapper.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/service/mail/EmailService.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/mapper/HopitalMapper.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/repository/HospitalRepository.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/controller/ReservationController.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/service/HospitalService.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/dto/HopitalDTO.java
+/Users/henrickagname/openclassroom/p11/apiReservation/src/main/java/com/medHeadReservation/api/model/Hospital.java

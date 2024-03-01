@@ -1,0 +1,16 @@
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/service/HospitalService.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/controller/HospitalController.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/repository/HospitalRepository.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/dto/HospitalDTO.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/dto/SpecializationDTO.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/ApiApplication.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/security/SecurityConfig.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/model/Hospital.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/dto/GroupeSpecialiteDTO.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/model/GroupeSpecialite.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/mapper/HospitalMapper.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/repository/SpecializationRepository.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/config/WebConfig.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/model/Specialization.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/mapper/GroupeSpecialiteMapper.java
+/Users/henrickagname/openclassroom/p11/api/src/main/java/com/medhead/api/mapper/SpecializationMapper.java
