@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
+        distribution: 'temurin' # Ajoutez cette ligne
     - name: Build and Test API
       run: |
         mvn -B package --file api/pom.xml
