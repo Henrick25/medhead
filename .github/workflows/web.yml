@@ -3,7 +3,7 @@ name: Web CI/CD Workflow
 on: 
   push:
     branches: 
-      - developpe
+      - develop
     paths:
       - 'web/**'
   pull_request:
@@ -32,3 +32,23 @@ jobs:
     - name: Test Web project
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
       working-directory: web
+
+  deploy-web:
+    needs: build-and-test-web
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: <DOCKER_USERNAME>
+        password: <DOCKER_PASSWORD>
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: ./web
+        file: ./web/Dockerfile
+        push: true
+        tags: <DOCKER_USERNAME>/<DOCKER_IMAGE_NAME>:latest
+    # Add steps for deployment if needed, such as updating a Kubernetes deployment or notifying a service
