@@ -43,7 +43,7 @@ jobs:
 
     - name: Build Web project
       if: matrix.project == 'web'
-      run: npm run build --prefix ${{ matrix.project }}
+      run: npm run build 
 
     - name: Test API project
       if: matrix.project == 'api' || matrix.project == 'apiReservation'
@@ -51,5 +51,5 @@ jobs:
 
     - name: Test Web project
       if: matrix.project == 'web'
-      run: npm test --prefix ${{ matrix.project }}
+      run: npm test  
 
