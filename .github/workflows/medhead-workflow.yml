@@ -36,29 +36,27 @@ jobs:
       if: matrix.project == 'web'
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
-        cache: 'npm'  
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+        node-version: '18.x'
+        cache: 'npm'
+        cache-dependency-path: ${{ matrix.project }}/package-lock.json
 
-    - name: Build API project
+    - name: Install dependencies for Web project
+      if: matrix.project == 'web'
+      run: npm ci
+      working-directory: ${{ matrix.project }}
+
+    - name: Build Web project
+      if: matrix.project == 'web'
+      run: npm run build --if-present
+      working-directory: ${{ matrix.project }}
+
+    - name: Test Web project
+      if: matrix.project == 'web'
+      run: npm test
+      working-directory: ${{ matrix.project }}
+
+    - name: Build and Test API projects
       if: matrix.project == 'api' || matrix.project == 'apiReservation'
-      run: mvn -B package --file ${{ matrix.project }}/pom.xml
-
-  
-      
-
-    - name: Test API project
-      if: matrix.project == 'api' || matrix.project == 'apiReservation'
-      run: mvn test --file ${{ matrix.project }}/pom.xml
-
-  
-
-
-
-
-
-
-
-      
+      run: |
+        mvn -B package --file ${{ matrix.project }}/pom.xml
+        mvn test --file ${{ matrix.project }}/pom.xml
