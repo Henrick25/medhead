@@ -11,7 +11,7 @@ COPY web/package*.json ./
 RUN npm ci
 
 # Copy the rest of your application's code
-COPY dist/web
+COPY ./dist/web
 
 # Build your application
 RUN npm run build
