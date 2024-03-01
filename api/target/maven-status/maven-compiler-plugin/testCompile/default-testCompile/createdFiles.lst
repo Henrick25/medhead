@@ -1,0 +1,3 @@
+com/medhead/api/ApiApplicationTests.class
+com/medhead/api/service/HospitalServiceTest.class
+com/medhead/api/controller/HospitalControllerTest.class
