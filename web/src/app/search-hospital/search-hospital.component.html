@@ -1,0 +1,28 @@
+<div class="parentBanner"><img class="banner" src="assets/banner.png" alt=""></div>
+<div class="recherche">
+  <input type="text" [(ngModel)]="specialty" placeholder="Spécialité médicale">
+
+  <button class="btn" (click)="searchHospital()">Rechercher</button>
+</div>
+
+<div *ngIf="hospital">
+  <p class="hopitaleAttribut"> Hôpital le plus proche: <span>{{ hospital.name }}</span></p>
+  <p class="hopitaleAttribut">Adresse:<span> {{ hospital.numeroDeRue }} {{ hospital.rue }} {{ hospital.postal }}</span>
+  </p>
+  <button class="btn" *ngIf="!showReservationForm" (click)="showReservationForm = true">Réserver une place</button>
+</div>
+
+<div class="error" *ngIf="notFound">
+  <p>{{erreurSaisi}}</p>
+</div>
+<!-- Formulaire de réservation -->
+<div *ngIf="showReservationForm">
+  <app-reservation *ngIf="showReservationForm" [hospitalId]="hospital?.id ?? 0"
+    (reservationMade)="handleReservationMade($event)"></app-reservation>
+
+
+</div>
+
+<div *ngIf="reservationSuccess">
+  <p>Votre réservation est faite.</p>
+</div>

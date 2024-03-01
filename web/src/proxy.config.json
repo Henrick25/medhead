@@ -1,0 +1,20 @@
+{
+  "/api/reservations/*": {
+    "target": "http://localhost:9000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/web/*": {
+    "target": "http://localhost:9000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/hospital": {
+    "target": "http://localhost:8081",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

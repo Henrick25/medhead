@@ -1,0 +1,32 @@
+<form (ngSubmit)="submitReservation()">
+  <div>
+    <label for="patientName">Nom du patient :</label>
+    <input type="text" id="patientName" [(ngModel)]="patientName" name="patientName" required>
+  </div>
+  <div>
+    <label for="patientPhone">Téléphone du patient :</label>
+    <input type="tel" id="patientPhone" [(ngModel)]="patientPhone" name="patientPhone" required>
+  </div>
+  <div>
+    <label for="patientPhone">Adresse mail</label>
+    <input type="email" id="mail" [(ngModel)]="mail" name="mail" required>
+  </div>
+  <div>
+    <label for="patientPhone">Age</label>
+    <input type="number" id="age" [(ngModel)]="age" name="age" required>
+  </div>
+  <div>
+    <label for="patientPhone">Sexe</label>
+    <input type="text" id="sexe" [(ngModel)]="sexe" name="age" required>
+  </div>
+  <div>
+    <label for="patientPhone">Heure d'arrivé estimé</label>
+    <input type="time" id="heure" [(ngModel)]="heure" name="heure" required>
+  </div>
+  <div>
+    <label for="patientPhone">symptômes</label>
+    <input type="text" id="etat" [(ngModel)]="etat" name="etat" required>
+  </div>
+  <!-- Ajoutez tous les autres champs nécessaires pour la réservation ici -->
+  <button type="submit">Envoyer la réservation</button>
+</form>

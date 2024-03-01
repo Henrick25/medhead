@@ -1,0 +1,32 @@
+<div>
+  <h1>Listes des reservations</h1>
+</div>
+<ul>
+  <li *ngFor="let reservation of reservations ; let i= index">
+    <div class="card">
+      <div class="card-body">
+        <h2>{{ reservation.patientName }}</h2>
+        <p class="card-text"><span>Age: </span>{{ reservation.age }}</p>
+        <p class="card-text"><span>Numero de telephone: </span>{{reservation.patientPhone}}</p>
+        <p class="card-text"><span>Adresse mail: </span>{{reservation.mail}}</p>
+        <p class="card-text"><span>Sexe: </span>{{reservation.sexe}}</p>
+        <p class="card-text"><span>symptome: </span>{{reservation.etat}}</p>
+        <p class="card-text"><span>Heure d'arrivée: </span>{{reservation.heure}}</p>
+
+        <div class="flex" *ngIf="!reservation.etat_demande; else demandeTraitee">
+          <!-- Afficher le bouton Supprimer seulement si la réservation n'est pas encore traitée -->
+          <button class="btn position" *ngIf="!reservation.etat_demande"
+            (click)="supprimerReservation(i, reservation.id)">Supprimer</button>
+
+          <!-- Afficher le bouton Valider seulement si la réservation n'est pas encore traitée -->
+          <button class="btn" *ngIf="!reservation.etat_demande"
+            (click)="validerReservation(i, reservation)">Valider</button>
+        </div>
+        <ng-template #demandeTraitee>
+          <p class="card-text confirm">Demande traitée</p>
+        </ng-template>
+      </div>
+    </div>
+
+  </li>
+</ul>

@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+button,
+input {
+  background: none; /* Enlève le fond */
+  color: inherit; /* Utilise la couleur de texte héritée */
+  border: none; /* Enlève les bordures */
+  padding: 0; /* Enlève le padding */
+  margin: 0; /* Enlève les marges */
+  font: inherit; /* Utilise la police héritée */
+  cursor: pointer; /* Garde le curseur en pointeur pour le bouton */
+  outline: inherit; /* Utilise le contour hérité */
+}
+.btnbody {
+  background: #04afcb;
+  padding: 15px;
+  font-size: medium;
+  border-top-right-radius: 5px; /* Applique un rayon au coin supérieur droit */
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: white;
+}
+input {
+  border: 1px solid #04afcb !important;
+  /* border-radius: 5px; */
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 100%;
+}
+label {
+  font-weight: 900;
+}
