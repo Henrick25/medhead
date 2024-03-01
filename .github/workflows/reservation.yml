@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
+        distribution: 'temurin' # Ajout de la distribution Java
     - name: Build and Test API Reservation
       run: |
         mvn -B package --file apiReservation/pom.xml
