@@ -1,4 +1,4 @@
-name: Web CI/CD Workflow
+          name: Web CI/CD Workflow
 
 on: 
   push:
@@ -32,30 +32,3 @@ jobs:
     - name: Test Web project
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
       working-directory: web
-
-  docker-build-and-push:
-    needs: build-and-test-web
-    runs-on: ubuntu-latest
-#    if: github.ref == 'refs/heads/master'  Assurez-vous que cette ligne est correcte selon votre stratégie de déploiement
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        context: ./web
-        file: ./web/Dockerfile
-        push: true
-        tags: henrick25/web:latest
-
-
-
-
-
-  
