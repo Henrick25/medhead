@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "b1e23d93-7131-4e71-b7a6-61bbc973878e",
+		"name": "API de recherche d'hôpital",
+		"description": "Cette API permet de rechercher l'hôpital le plus proche en fonction de la spécialité, de la latitude et de la longitude, à condition que l'hôpital recherché ait au moins un lit disponible",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17505284"
+	},
+	"item": [
+		{
+			"name": "gethospital",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "testHospitalNullValue",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

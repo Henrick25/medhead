@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ReservationFormComponent } from './reservation/reservation.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GestionReservationComponent } from './gestion-reservation/gestion-reservation.component'; // Importez ReactiveFormsModule
+import { GestionReservationComponent } from './gestion-reservation/gestion-reservation.component';
+import { LoginComponent } from './login/login.component'; // Importez ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GestionReservationComponent } from './gestion-reservation/gestion-reser
     SearchHospitalComponent,
     ReservationFormComponent,
     GestionReservationComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

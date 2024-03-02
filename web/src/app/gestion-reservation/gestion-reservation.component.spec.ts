@@ -28,11 +28,13 @@ describe('GestionReservationComponent', () => {
 
   it('should load reservations on init', () => {
     const mockReservations = [{ id: 1, name: 'Test Reservation' }];
-    spyOn(service, 'getAllReservations').and.returnValue(of(mockReservations));
+    spyOn(service, 'getAllReservationsByToken').and.returnValue(
+      of(mockReservations)
+    );
 
     component.ngOnInit();
 
-    expect(service.getAllReservations).toHaveBeenCalled();
+    expect(service.getAllReservationsByToken).toHaveBeenCalled();
     expect(component.reservations).toEqual(mockReservations);
   });
 
