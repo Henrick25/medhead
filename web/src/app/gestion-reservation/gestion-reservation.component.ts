@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GestionReservationService } from '../gestion-reservation.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { SessionService } from '../session.service';
 @Component({
   selector: 'app-gestion-reservation',
   templateUrl: './gestion-reservation.component.html',
@@ -12,14 +13,19 @@ export class GestionReservationComponent {
   index!: number;
   constructor(
     private cdr: ChangeDetectorRef,
-    private gestionReservationService: GestionReservationService
+    private gestionReservationService: GestionReservationService,
+    private sessionService: SessionService
   ) {}
 
   ngOnInit(): void {
-    this.gestionReservationService.getAllReservations().subscribe((data) => {
-      this.reservations = data;
-      console.log(data);
-      this.cdr.detectChanges();
+    this.sessionService.getToken().subscribe((token) => {
+      this.gestionReservationService
+        .getAllReservationsByToken(token)
+        .subscribe((data) => {
+          this.reservations = data;
+          console.log(data);
+          this.cdr.detectChanges();
+        });
     });
   }
   supprimerReservation(index: number, id: number) {
