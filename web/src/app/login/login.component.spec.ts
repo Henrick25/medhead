@@ -5,6 +5,7 @@ import { LoginComponent } from './login.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,7 +15,13 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       providers: [AuthService, SessionService],
-      imports: [RouterTestingModule, HttpClientModule, CommonModule],
+      imports: [
+        RouterTestingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
